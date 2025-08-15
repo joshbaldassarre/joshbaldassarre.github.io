@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="navigation-style.css?ver=1.0" type="text/css">
+<link rel="stylesheet" href="style.css?ver=1.0" type="text/css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@50..200,200..900&family=Instrument+Serif:ital@0;1&family=Roboto+Flex:opsz,slnt,wdth,wght,GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC@8..144,-10..0,25..151,100..1000,-200..150,27..175,323..603,25..135,649..854,-305..-98,560..788,416..570,528..760&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_outward,close,help,info,menu" rel="stylesheet" />
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7e5f6" />
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
+<title>Electric Film - Events</title>
+</head>
+
+<body>
+    <div id="navigation-menu-toggle" class="navigation-menu close-navigation">
+        <nav class="menu-container">
+            <div class="menu-header">
+                <h1 class="instrument-serif-regular">Electric Film</h1>
+                <button class="menu-control" onclick="toggleMenu()">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+
+            <div class="menu-item a1">
+                <button class="menu-item-grid">
+                    <h2 class="roboto-flex-menu-item-head">Events</h2>
+                    <img src="/assets/placeholder-purple.jpg">
+                </button>
+            </div>
+            <div class="menu-item a2">
+                <button class="menu-item-grid disabled-item">
+                    <h2 class="roboto-flex-menu-item-head">Market</h2>
+                    <img src="/assets/wip-graphic.png">
+                </button>
+            </div>
+            <div class="menu-item a3">
+                <button class="menu-item-grid disabled-item">
+                    <h2 class="roboto-flex-menu-item-head">Fund</h2>
+                    <img src="/assets/wip-graphic.png">
+                </button>
+            </div>
+            <div class="menu-sub-item b1">
+                <button class="menu-item-foot">
+                    <h3 class="roboto-flex-menu-subitem">Socials</h3>
+                    <span class="material-symbols-outlined">arrow_outward</span>
+                </button>
+            </div>
+            <div class="menu-sub-item b2">
+                <button class="menu-item-foot">
+                    <h3 class="roboto-flex-menu-subitem">About</h3>
+                    <span class="material-symbols-outlined">info</span>
+                </button>
+            </div>
+            <div class="menu-sub-item b3">
+                <button class="menu-item-foot">
+                    <h3 class="roboto-flex-menu-subitem">Contact</h3>
+                    <span class="material-symbols-outlined">help</span>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+    <div id="content-toggle" class="page-container">
+        <nav class="navigation-bar">
+            <h1 class="instrument-serif-regular">Electric Film</h1>
+            <button class="menu-control" onclick="toggleMenu()">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </nav>
+
+    <div id="welcome-message" class="welcome-banner">
+        <p class="inconsolata-menu-body">Discover more</p>
+        <button onclick="hideWelcomeMessage()"><span class="material-symbols-outlined">close</span></button>
+    </div>
+
+        <article class="page-layout-1">
+            <div class="video-thumbnail">Video</div>
+            <h1 class="instrument-serif-regular">Festival</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
+            <div class="image-quote">
+                <img src="/assets/placeholder-desk.jpg">
+                <p>Image credit: John Smith (2024)</p>
+            </div>
+            <div class="button-container">
+                <button>Submissions
+                    <span class="material-symbols-outlined">arrow_outward</span>
+                </button>
+            </div>
+            <div class="divider"></div>
+            <p class="ad-alert">Advertisement</p>
+            <div class="advert">
+            </div>
+            <div class="divider"></div>
+            <h1 class="instrument-serif-regular">Latest News</h1>
+        </article>
+
+        <footer>
+            <div class="footer-list">
+                <a class="footer-header" href="">Electric Film</a>
+                <a class="footer-item" href="">FilmFreeway</a>
+                <a class="footer-item" href="">Instagram</a>
+                <a class="footer-item" href="">About Us</a>
+            </div>
+            <div class="footer-list">
+                <a class="footer-header" href="">Events</a>
+                <a class="footer-item" href="">Festival</a>
+                <a class="footer-item" href="">Fundraisers</a>
+                <a class="footer-item" href="">Articles</a>
+            </div>
+            <!--
+            <div class="footer-list">
+                <a class="footer-header"></a>
+                <a class="footer-item"></a>
+                <a class="footer-item"></a>
+                <a class="footer-item"></a>
+            </div>
+            <div class="footer-list">
+                <a class="footer-header"></a>
+                <a class="footer-item"></a>
+                <a class="footer-item"></a>
+                <a class="footer-item"></a>
+            </div>
+            -->
+            <div class="footer-list">
+                <a class="footer-header" href="">Contact</a>
+                <a class="footer-item" href="">info@electricfilm.com</a>
+                <a class="footer-item" href="">+44 1234 567 890</a>
+                <a class="footer-item" href="">London, UK</a>
+            </div>
+        </footer>
+    </div>
+    <!--SCRIPTS-->
+    <script src="scripts/style-scripts.js" defer></script>
+</body>
+</html>

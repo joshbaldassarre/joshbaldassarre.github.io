@@ -1,0 +1,694 @@
+:root {
+  --menu-button-toggle: #ffeffe;
+  --white-sub: #FEF9FF;
+  --white-hover: #fff4fc;
+  --menu-header-accent: #28A409;
+  --menu-header-accent-fade: #d4f3b6;
+  --menu-body-accent: #a8419c;
+  --menu-body-accent-hover: #701F7A;
+  --menu-background: #f7e5f6;
+}
+
+.close-navigation {
+  transition: var(--no-bounce-ease-out-slow);
+  display: none;
+  position: fixed;
+  visibility: collapse;
+  transform: translateX(0) translateY(-100vh);
+  opacity: 1;
+  background-color: transparent;
+}
+
+.hide-page-contents {
+  transition: var(--no-bounce-ease-out-slow);
+  opacity: 0.4 !important;
+  transform: scale(0.666);
+  filter: blur(40px);
+}
+
+.welcome-banner {
+  transition: var(--no-bounce-ease-out-slow);
+  position: fixed;
+  top: 200px;
+  align-self: self-end;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--menu-body-accent);
+  color: var(--menu-background);
+  padding: 40px;
+  margin: 0;
+  text-align: center;
+  height: auto;
+  max-width: calc(1000px / 3);
+  width: auto;
+  border-radius: 40px;
+  z-index: 50; /* Ensures it's on top of other content */
+}
+
+.welcome-banner::before {
+  transition: var(--expressive-spacial-fast);
+  content: "";
+  position: absolute;
+  border-width: 0 10px 10px 10px; /* Creates the triangle with a height of 16px */
+  border-style: solid;
+  border-color: transparent transparent var(--menu-body-accent) transparent; /* The color of the arrow matches the box border */
+  right: 50px;
+  top: -10px;
+}
+
+.welcome-banner:hover {
+  background-color: var(--menu-body-accent-hover);
+}
+
+.welcome-banner:hover::before {
+    border-color: transparent transparent var(--menu-body-accent-hover) transparent !important; /* The color of the arrow matches the box border */
+}
+
+.welcome-banner p {
+  user-select: none;
+  text-align: left;
+  width: auto;
+}
+
+.welcome-banner button {
+  transition: var(--expressive-spacial-fast);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  width: 100%;
+  height: 50px;
+  color: var(--menu-body-accent);
+  background-color: var(--white-sub);
+}
+
+.hidden {
+  visibility: collapse;
+  transform: scale(0.4);
+  opacity: 0;
+}
+
+.material-symbols-outlined {
+  transition: var(--expressive-spacial-fast);
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 200,
+  'GRAD' 0,
+  'opsz' 24;
+}
+
+/** weight: Use a value from 200 to 900 **/
+
+.inconsolata-menu-body {
+  font-family: "Inconsolata", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.instrument-serif-regular {
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.instrument-serif-regular-italic {
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.roboto-flex-menu-item-head {
+  font-family: "Roboto Flex", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "wdth" 120,
+    "GRAD" 0,
+    "XOPQ" 100,
+    "XTRA" 468,
+    "YOPQ" 79,
+    "YTAS" 750,
+    "YTDE" -203,
+    "YTFI" 738,
+    "YTLC" 514,
+    "YTUC" 712;
+}
+
+.roboto-flex-menu-subitem {
+  transition: var(--expressive-spacial-fast);
+  font-family: "Roboto Flex", sans-serif;
+  font-optical-sizing: 40;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "wdth" 110,
+    "GRAD" 0,
+    "XOPQ" 100,
+    "XTRA" 468,
+    "YOPQ" 79,
+    "YTAS" 750,
+    "YTDE" -203,
+    "YTFI" 738,
+    "YTLC" 514,
+    "YTUC" 712;
+}
+
+button {
+  cursor: pointer;
+  user-select: none;
+}
+
+img {
+  object-fit: cover;
+}
+
+.menu-container {
+  transition: var(--expressive-spacial-fast);
+  display: grid;
+}
+
+.menu-item,
+.menu-sub-item,
+.menu-header {
+  transition: var(--expressive-spacial-fast);
+}
+
+.menu-container button {
+  transition: var(--expressive-spacial-fast);
+  border-radius: 40px;
+  background-color: var(--white);
+  width: 100%;
+  height: 100%;
+}
+
+.menu-header {
+  user-select: none;
+}
+
+.menu-container .menu-header button {
+  background-color: var(--menu-button-toggle) !important;
+}
+
+.menu-control:hover {
+  background-color: var(--white-hover) !important;
+}
+
+.menu-container .menu-item:active > button,
+.menu-container .menu-sub-item:active > button,
+.menu-control:active,
+.welcome-banner button:active {
+  transform: scale(.98) !important;
+  border-radius: 40px !important;
+}
+
+/** :not CODE removed
+.menu-container:hover .menu-item:not(:hover),
+.menu-container:hover .menu-sub-item:not(:hover),
+.menu-container:hover .menu-control:not(:hover)  {
+  transform: scale(0.96);
+}
+**/
+
+.menu-container .menu-item:active > button img, 
+.menu-container .menu-sub-item:active > button h3 {
+  pointer-events: inherit;
+  user-select: inherit;
+  transform: scale(0.95) !important;
+}
+
+.menu-container .menu-item-foot,
+.menu-control {
+  background-color: var(--white-sub) !important;
+}
+
+.menu-container .menu-item:hover > button {
+  pointer-events: inherit;
+  user-select: inherit;
+  border-radius: 33px;
+  background-color: var(--white-hover);
+  color: var(--menu-body-accent-hover);
+  transform: rotate(0deg) scale(1.06);
+}
+
+.menu-container .menu-sub-item:hover > button,
+.menu-control:hover,
+.welcome-banner button:hover {
+  pointer-events: inherit;
+  user-select: inherit;
+  border-radius: 33px;
+  background-color: var(--white-hover);
+  transform: rotate(0deg) scale(1.06);
+}
+
+.menu-container .menu-item:hover > button img {
+  pointer-events: inherit;
+  user-select: inherit;
+  border-radius: 39px;
+  transform: rotate(0deg);
+}
+
+.menu-container .menu-item:hover > button h2,
+.menu-container .menu-item:hover > button p {
+  pointer-events: inherit;
+  user-select: inherit;
+  transform: rotate(0deg) scale(1);
+}
+
+.menu-container .menu-item:hover > button h2 {
+  pointer-events: inherit;
+  user-select: inherit;
+  font-weight: 800;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "wdth" 141,
+    "GRAD" -37,
+    "XOPQ" 100,
+    "XTRA" 468,
+    "YOPQ" 79,
+    "YTAS" 750,
+    "YTDE" -203,
+    "YTFI" 738,
+    "YTLC" 514,
+    "YTUC" 712;
+}
+
+.menu-item-grid {
+  color: var(--menu-body-accent);
+}
+
+.menu-control {
+  color: var(--menu-header-accent);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: calc(1000px / 3) !important;
+}
+
+.menu-item-foot {
+  color: var(--menu-header-accent);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-container .a1 button h2 {
+  transform: scale(1.12);
+}
+
+.menu-container .a1 button img {
+  border-radius: 50px 50px calc(253.33px / 2) calc(253.33px / 2);
+}
+
+.menu-container .a2 button h2 {
+  transform: scale(1.12);
+}
+
+.menu-container .a2 button img {
+  border-radius: calc(253.33px / 2) calc(253.33px / 2) 50px 50px;
+}
+
+.menu-container .a3 button h2 {
+  transform: scale(1.12);
+}
+
+.menu-container .a3 button img {
+  border-radius: calc(253.33px / 2) 50px calc(253.33px / 2) 50px;
+}
+
+.menu-header {
+  grid-row: rl-0 / rl-1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  white-space: nowrap;
+  color: var(--menu-header-accent);
+}
+
+
+.navigation-bar {
+  width: 100%;
+  display: flex;
+  position: sticky;
+  top: 0;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+  color: var(--menu-header-accent);
+  background-color: var(--menu-background);
+  padding: 20px 0;
+  z-index: 50;
+}
+
+.navigation-menu {
+  transition: var(--no-bounce-ease-out-slow);
+  z-index: 100;
+  background-color: transparent;
+}
+
+@media (1100px <= width) {
+
+.navigation-menu {
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.navigation-bar .menu-control{
+  transition: var(--expressive-spacial-fast);
+  background-color: var(--white-sub);
+  border-radius: 40px;
+  height: 125px;
+}
+
+.navigation-bar h1 {
+    font-size: 64px;
+}
+
+.menu-control .material-symbols-outlined {
+  z-index: 5;
+  font-size: 50px;
+}
+
+.menu-container {
+  margin: 10px;
+  grid-template-columns: [cl-1] calc(1000px / 3) [cl-2] calc(1000px / 3) [cl-3] calc(1000px / 3) [cl-4];
+  grid-template-rows: [rl-0] 125px [rl-1] 480px [rl-2] 125px [rl-3];
+  gap: 40px
+}
+
+.menu-header {
+  width: 1080px;
+  gap: 200px;
+}
+.menu-header h1 {
+  font-size: 96px;
+}
+
+.menu-item {
+  grid-row: rl-1 / rl-2;
+}
+
+.menu-sub-item {
+  grid-row: rl-2 / rl-3;
+}
+
+.menu-item-grid {
+  padding: 40px;
+  display: grid;
+  grid-template-columns: [cl-1] 253.333px [cl-2];
+  grid-template-rows: [rl-1] 56px [rl-2] 148px [rl-3] 156px [rl-4];
+  gap: 20px
+}
+
+.menu-item-grid h2 {
+  transition: var(--expressive-spacial-fast);
+  grid-row: rl-1 / rl-2;
+}
+
+.menu-item-grid img {
+  transition: var(--expressive-spacial-fast);
+  grid-row: rl-2 / rl-4;
+  width: 253.333px;
+  height: 100%;
+  border-radius: calc(253.33px / 2);
+}
+
+.menu-container h2 {
+  font-size: 48px;
+  text-align: center;
+}
+
+.menu-sub-item .menu-item-foot h3 {
+  z-index: 10;
+  font-size: 40px;
+}
+
+.menu-container .material-symbols-outlined {
+  z-index: 5;
+  font-size: 50px;
+}
+
+.menu-sub-item button:hover > .material-symbols-outlined {
+  transform: scale(2);
+  color: var(--menu-header-accent-fade);
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 700,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.menu-sub-item button:hover > h3 {
+  transform: translateX(10px);
+  z-index: 10;
+  font-weight: 800;
+  font-variation-settings:
+    "slnt" 0,
+    "wdth" 130,
+    "GRAD" 0,
+    "XOPQ" 100,
+    "XTRA" 468,
+    "YOPQ" 79,
+    "YTAS" 750,
+    "YTDE" -203,
+    "YTFI" 738,
+    "YTLC" 514,
+    "YTUC" 712;
+}
+
+.menu-item-foot:hover {
+  gap: 0px;
+}
+
+}
+
+/************ MOBILE adjustments ************/
+
+@media (1100px > width) {
+
+.welcome-banner {
+  top: 124px;
+  align-self: self-end;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  margin: 0 20px 0 0;
+  text-align: center;
+  height: auto;
+  max-width: calc(1000px / 3);
+  width: auto;
+  border-radius: 40px;
+  z-index: 50; /* Ensures it's on top of other content */
+}
+
+.welcome-banner::before {
+  right: 40px;
+}
+
+.close-navigation {
+  transform: translateX(100vw) translateY(0);
+}
+
+.navigation-menu {
+  position: fixed;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100vw;
+  height: 100vh !important; /* Try setting a specific height */
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow-y: auto; /* Ensure scrollbar appears when content overflows */
+}
+
+.navigation-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 80px;
+}
+
+.navigation-bar .menu-control{
+  transition: var(--expressive-spacial-fast);
+  background-color: var(--white-sub);
+  border-radius: 40px;
+  aspect-ratio: 1 !important;
+  width: 64px !important;
+  height: 64px !important;
+}
+
+.navigation-bar h1 {
+  font-size: 48px !important;
+}
+
+.navigation-menu .menu-control {
+  aspect-ratio: 1 !important;
+  width: 64px !important;
+  height: 64px !important;
+}
+
+.menu-control .material-symbols-outlined {
+  z-index: 5;
+  font-size: 32px !important;
+}
+
+.menu-container {
+  width: 100%;
+  display: flex !important;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 !important;
+  padding: 20px 80px 40px 80px;
+}
+
+.menu-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.menu-header h1 {
+  font-size: 48px;
+}
+
+.menu-item {
+  grid-row: none;
+  width: 100%;
+}
+
+.menu-container .a1 button img,
+.menu-container .a2 button img,
+.menu-container .a3 button img {
+  border-radius: 50px;
+}
+.menu-sub-item {
+  grid-row: none;
+  width: 100%;
+  height: 100px;
+}
+
+.menu-item-grid {
+  padding: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 10px
+}
+
+.menu-item-grid h2 {
+  width: 100px;
+  transition: var(--expressive-spacial-fast);
+}
+
+.menu-item-grid img {
+  transition: var(--expressive-spacial-fast);
+  width: 120px;
+  height: 100px;
+  border-radius: 100px;
+}
+
+.menu-container h2 {
+  font-size: 32px;
+  text-align: center;
+}
+
+.menu-sub-item .menu-item-foot h3 {
+  z-index: 10;
+  font-size: 32px;
+}
+
+.menu-container .material-symbols-outlined {
+  z-index: 5;
+  font-size: 36px;
+}
+
+.menu-sub-item button:hover > .material-symbols-outlined {
+  transform: scale(2);
+  color: var(--menu-header-accent-fade);
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 700,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.menu-sub-item button:hover > h3 {
+  transform: translateX(10px);
+  z-index: 10;
+  font-weight: 800;
+  font-variation-settings:
+    "slnt" 0,
+    "wdth" 130,
+    "GRAD" 0,
+    "XOPQ" 100,
+    "XTRA" 468,
+    "YOPQ" 79,
+    "YTAS" 750,
+    "YTDE" -203,
+    "YTFI" 738,
+    "YTLC" 514,
+    "YTUC" 712;
+}
+
+.menu-item-foot:hover {
+  gap: 0px;
+}
+
+
+}
+
+@media (800px >= width) {
+.menu-container {
+  padding: 20px 40px 40px 40px;
+}
+.navigation-bar {
+  padding: 20px 40px;
+}
+
+}
+
+@media (500px >= width) {
+.menu-container {
+  padding: 20px 20px 40px 20px;
+}
+
+.navigation-bar {
+  padding: 20px;
+}
+
+}
