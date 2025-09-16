@@ -458,7 +458,11 @@ footer {
   width: 100%;
 }
 .carousel-cell-header p {
+  height: auto;
+  opacity: 0.4;
+  font-size: 12pt;
   text-align: right;
+  align-self: flex-start;
 }
 
 .carousel-cell img {
@@ -623,7 +627,16 @@ footer {
 
 .carousel-cell {
   height: auto;
-  padding: 40px 40px 60px 40px;
+  padding: 20px 20px 40px 20px;
+  border-radius: 20px;
+}
+
+.carousel-cell img {
+  height: 200px;
+}
+
+.carousel-cell p {
+  font-size: 10pt;
 }
 
 .flickity-button {
@@ -638,11 +651,15 @@ footer {
 }
 
 .flickity-prev-next-button.previous {
-  left: 20px;
+  left: 5px;
 }
 
 .flickity-prev-next-button.next {
-  right: 20px;
+  right: 5px;
+}
+
+.flickity-page-dots {
+  bottom: 10px;
 }
 
 }
@@ -694,6 +711,10 @@ footer {
 
 .flickity-slider {
   width: 100% !important;
+}
+
+.carousel-cell img {
+  height: 100px;
 }
 
 }
