@@ -7,6 +7,7 @@
   --menu-body-accent: #a8419c;
   --menu-body-accent-hover: #701F7A;
   --menu-background: #f7e5f6;
+  --menu-background-9: rgba(247, 229, 246, 0.95);
 }
 
 .close-navigation {
@@ -27,7 +28,7 @@
 }
 
 .welcome-banner {
-  transition: var(--no-bounce-ease-out-slow);
+  transition: var(--no-bounce-ease-out-fast);
   position: fixed;
   top: 200px;
   align-self: self-end;
@@ -50,7 +51,7 @@
 }
 
 .welcome-banner::before {
-  transition: var(--expressive-spacial-fast);
+  transition: var(--no-bounce-ease-out-fast);
   content: "";
   position: absolute;
   border-width: 0 10px 10px 10px; /* Creates the triangle with a height of 16px */
@@ -93,7 +94,6 @@
 }
 
 .material-symbols-outlined {
-  transition: var(--expressive-spacial-fast);
   font-variation-settings:
   'FILL' 0,
   'wght' 200,
@@ -211,6 +211,15 @@ img {
   border-radius: 40px !important;
 }
 
+.menu-container .menu-item:active > .disabled-item,
+.menu-container .menu-sub-item:active > .disabled-item,
+.welcome-banner .disabled-item:active {
+  user-select: none !important;
+  pointer-events: none !important;
+  opacity: 0.4 !important;
+  transform: scale(0.8) !important;
+}
+
 /** :not CODE removed
 .menu-container:hover .menu-item:not(:hover),
 .menu-container:hover .menu-sub-item:not(:hover),
@@ -223,7 +232,7 @@ img {
 .menu-container .menu-sub-item:active > button h3 {
   pointer-events: inherit;
   user-select: inherit;
-  transform: scale(0.95) !important;
+  transform: scale(0.95);
 }
 
 .menu-container .menu-item-foot,
@@ -237,7 +246,7 @@ img {
   border-radius: 33px;
   background-color: var(--white-hover);
   color: var(--menu-body-accent-hover);
-  transform: rotate(0deg) scale(1.06);
+  transform: scale(1.06);
 }
 
 .menu-container .menu-sub-item:hover > button,
@@ -247,21 +256,20 @@ img {
   user-select: inherit;
   border-radius: 33px;
   background-color: var(--white-hover);
-  transform: rotate(0deg) scale(1.06);
+  transform: scale(1.06);
 }
 
 .menu-container .menu-item:hover > button img {
   pointer-events: inherit;
   user-select: inherit;
   border-radius: 39px;
-  transform: rotate(0deg);
 }
 
 .menu-container .menu-item:hover > button h2,
 .menu-container .menu-item:hover > button p {
   pointer-events: inherit;
   user-select: inherit;
-  transform: rotate(0deg) scale(1);
+  transform: scale(1);
 }
 
 .menu-container .menu-item:hover > button h2 {
@@ -350,7 +358,8 @@ img {
   align-items: center;
   white-space: nowrap;
   color: var(--menu-header-accent);
-  background-color: var(--menu-background);
+  background-color: var(--menu-background-9);
+  backdrop-filter: grayscale(1);
   padding: 20px 0;
   z-index: 50;
 }
@@ -447,6 +456,7 @@ img {
 }
 
 .menu-container .material-symbols-outlined {
+    transition: var(--no-bounce-ease-out-fast) !important;
   z-index: 5;
   font-size: 50px;
 }

@@ -9,8 +9,10 @@
   --footer-background: #f0dded;
   --footer-primary: #a8419c;
 
+  --no-bounce-ease-out-fast: all 350ms cubic-bezier( 0.666, 0.333, 0, 1 ) !important;
   --no-bounce-ease-out-slow: all 650ms cubic-bezier( 0.666, 0.333, 0, 1 ) !important;
   --expressive-spacial-fast: all 350ms cubic-bezier(0.42, 1.67, 0.21, 0.90) !important;
+  --carousel-switch: all 30s cubic-bezier(0.42, 1.67, 0.21, 0.90) !important;
   --expressive-spacial-default: all 500ms cubic-bezier(0.38, 1.21, 0.22, 1.00) !important;
   --expressive-spacial-slow: all 650ms cubic-bezier(0.39, 1.29, 0.35, 0.98) !important;
   --transition-properties-spacial: height, width, transform, border-radius, margin, padding, font-size, font-weight, font-variation-settings !important;
@@ -185,9 +187,9 @@ footer {
   opacity: 1;
 }
 
-
-
-.disabled-item {
+.disabled-item,
+.disabled-item:hover, 
+.disabled-item:active {
   user-select: none !important;
   pointer-events: none !important;
   opacity: 0.4 !important;
@@ -218,6 +220,17 @@ footer {
   grid-auto-rows: auto;
   grid-auto-flow: row;
   gap: 20px;
+}
+
+.page-layout-1 .block-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  gap: 8px;
+}
+
+.page-layout-1 .block-column .button-container {
+  flex-grow: 4;
 }
 
 .page-layout-1 .advert {
@@ -325,11 +338,11 @@ footer {
   align-items: center;
 }
 
-.page-layout-1 button .material-symbols-outlined {
+.page-layout-1 .inline-button .material-symbols-outlined {
   font-size: 36px;
 }
 
-.page-layout-1 button {
+.page-layout-1 .inline-button {
   transition: var(--expressive-spacial-fast);
   display: flex;
   justify-content: center;
@@ -361,17 +374,196 @@ footer {
     "YTUC" 712;
 }
 
-.page-layout-1 button:hover {
+.page-layout-1 .inline-button:hover {
   pointer-events: inherit;
   user-select: inherit;
   transform: scale(1.05);
+  font-weight: 600;
+  font-size: 22px;
   background-color: var(--button-background-hover-1);
 }
 
-.page-layout-1 button:active {
+.page-layout-1 .inline-button:hover > .material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 600,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.page-layout-1 .inline-button:active > .material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 350,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.page-layout-1 .inline-button:active {
+  font-weight: 700;
   transform: scale(0.98);
   border-radius: 30px;
+  font-size: 18px;
 }
+
+/** Carousel Start **/
+
+.flickity-enabled:focus .flickity-viewport {
+  transition: var(--no-bounce-ease-out-fast);
+  outline: 0px auto transparent;
+}
+
+.carousel {
+  background: transparent;
+  grid-column: cl-1 / cl-3;
+}
+
+.flickity-slider {
+  width: 1100px !important;
+}
+
+.carousel-cell {
+  transition: var(--no-bounce-ease-out-fast);
+  width: 100%;
+  height: auto;
+  margin-right: 0px;
+  padding: 40px 40px 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:baseline;
+  gap: 20px;
+  background: var(--white);
+  border-radius: 40px;
+  color: black;
+  opacity: 0;
+  z-index: 1;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.carousel-cell:hover {
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.carousel-cell.is-selected {
+  opacity: 1;
+  z-index: 2;
+}
+
+.carousel-cell-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.carousel-cell-header p {
+  text-align: right;
+}
+
+.carousel-cell img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.flickity-button {
+  transition: var(--no-bounce-ease-out-fast);
+  background: var(--footer-background);
+  outline: none !important;
+  border: none !important;
+}
+
+
+
+.flickity-button:hover {
+  background: var(--footer-background);
+}
+
+.flickity-button-icon {
+  transition: var(--expressive-spacial-fast);
+  fill:var(--button-background-1);
+  transform: scale(0.5);
+}
+
+.flickity-button:hover > .flickity-button-icon {
+  transform: scale(0.6);
+}
+
+.flickity-button:active > .flickity-button-icon {
+  transform: scale(0.4);
+}
+
+.flickity-prev-next-button {
+  width: 60px;
+  height: 80px;
+}
+
+.flickity-button:disabled {
+  opacity: 0.2;
+}
+
+/* arrow */
+
+/**
+.flickity-prev-next-button.previous::after,
+.flickity-prev-next-button.next::after {
+  background-color: black;
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+}
+**/
+
+.flickity-prev-next-button.previous {
+  left: 0;
+  z-index: 6;
+}
+
+.flickity-prev-next-button.previous {
+  border-radius: 0 20px 20px 0;
+}
+
+.flickity-prev-next-button.previous:active {
+  border-radius: 0 40px 40px 0;
+}
+
+
+.flickity-prev-next-button.next {
+  right: 0;
+  z-index: 6;
+}
+
+.flickity-prev-next-button.next {
+  border-radius: 20px 0 0 20px;
+}
+
+.flickity-prev-next-button.next:active {
+  border-radius: 40px 0 0 40px;
+}
+
+/* position dots in carousel */
+.flickity-page-dots {
+  bottom: 20px;
+}
+
+/* white circles */
+.flickity-page-dots .dot {
+  margin: 5px;
+  width: 10px;
+  height: 5px;
+  border-radius: 5px;
+  background: var(--button-background-1);
+  transition: var(--expressive-spacial-fast);
+}
+/* fill-in selected dot */
+.flickity-page-dots .dot.is-selected {
+  width: 40px;
+}
+
+
+/** Caorusel End **/
 
 @media (1100px <= width) {
 
@@ -409,6 +601,10 @@ footer {
   gap: 40px;
 }
 
+.page-layout-1 .block-column {
+  gap: 16px;
+}
+
 .page-layout-1 p {
   font-size: 18px;
 }
@@ -420,6 +616,35 @@ footer {
 .page-layout-1 button {
   width: 100%;
 }
+
+.flickity-slider {
+  width: 800px !important;
+}
+
+.carousel-cell {
+  height: auto;
+  padding: 40px 40px 60px 40px;
+}
+
+.flickity-button {
+  outline: none !important;
+  border: none !important;
+}
+
+.flickity-prev-next-button {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 20px !important;
+}
+
+.flickity-prev-next-button.previous {
+  left: 20px;
+}
+
+.flickity-prev-next-button.next {
+  right: 20px;
+}
+
 }
 
 @media (800px >= width) {
@@ -440,6 +665,9 @@ footer {
   grid-auto-rows: auto;
   grid-auto-flow: row;
   gap: 20px;
+}
+.flickity-slider {
+  width: 500px !important;
 }
 
 }
@@ -462,6 +690,10 @@ footer {
   grid-auto-rows: auto;
   grid-auto-flow: row;
   gap: 20px;
+}
+
+.flickity-slider {
+  width: 100% !important;
 }
 
 }

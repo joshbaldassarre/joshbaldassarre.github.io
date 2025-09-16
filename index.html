@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="stylesheets/flickity-style.css?ver=2.0" type="text/css">
 <link rel="stylesheet" href="navigation-style.css?ver=1.0" type="text/css">
-<link rel="stylesheet" href="style.css?ver=1.0" type="text/css">
+<link rel="stylesheet" href="style.css?ver=1.1" type="text/css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@50..200,200..900&family=Instrument+Serif:ital@0;1&family=Roboto+Flex:opsz,slnt,wdth,wght,GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC@8..144,-10..0,25..151,100..1000,-200..150,27..175,323..603,25..135,649..854,-305..-98,560..788,416..570,528..760&display=swap" rel="stylesheet">
@@ -77,24 +78,70 @@
     </div>
 
         <article class="page-layout-1">
-            <div class="video-thumbnail">Video</div>
-            <h1 class="instrument-serif-regular">Festival</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
+            <!--<h1 class="instrument-serif-regular">Latest News</h1>-->
+
+            <div class="carousel js-flickity" data-flickity-options='{ "autoPlay": true, "alignCell": "center", "wrapAround": true, "percentPosition": false, "adaptiveHeight": true }'>
+              <div class="carousel-cell">
+                <div class="carousel-cell-header">
+                  <h1 class="instrument-serif-regular">Headline</h1>
+                  <p>Date</p>
+                </div>
+                <!--<p class="carousel-cell-author">Author</p>-->
+                <img src="/assets/placeholder-desk.jpg">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+              </div>
+              <!---->
+              <div class="carousel-cell">
+                <div class="carousel-cell-header">
+                  <h1 class="instrument-serif-regular">Headline</h1>
+                  <p>Date</p>
+                </div>
+                <p class="carousel-cell-author">Author</p>
+                <img src="/assets/placeholder-desk.jpg">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+              </div>
+              <!---->
+              <div class="carousel-cell">
+                <div class="carousel-cell-header">
+                  <h1 class="instrument-serif-regular">Headline</h1>
+                  <p>Date</p>
+                </div>
+                <p class="carousel-cell-author">Author</p>
+                <img src="/assets/placeholder-desk.jpg">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+              </div>
+              <!---->
+              <div class="carousel-cell">
+                <div class="carousel-cell-header">
+                  <h1 class="instrument-serif-regular">Headline</h1>
+                  <p>Date</p>
+                </div>
+                <p class="carousel-cell-author">Author</p>
+                <img src="/assets/placeholder-desk.jpg">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+              </div>
+              <!---->
+            </div>
+
+            <div class="divider"></div>
+            <p class="ad-alert">Advertisement</p>
+            <div class="advert"></div>
+            <div class="divider"></div>
+
+            <div class="block-column">
+                <h1 class="instrument-serif-regular">Festival</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <div class="button-container">
+                    <button class="inline-button">Submissions
+                        <span class="material-symbols-outlined">arrow_outward</span>
+                    </button>
+                </div>            
+            </div>
             <div class="image-quote">
                 <img src="/assets/placeholder-desk.jpg">
                 <p>Image credit: John Smith (2024)</p>
             </div>
-            <div class="button-container">
-                <button>Submissions
-                    <span class="material-symbols-outlined">arrow_outward</span>
-                </button>
-            </div>
-            <div class="divider"></div>
-            <p class="ad-alert">Advertisement</p>
-            <div class="advert">
-            </div>
-            <div class="divider"></div>
-            <h1 class="instrument-serif-regular">Latest News</h1>
+            <div class="video-thumbnail">Video</div>
         </article>
 
         <footer>
@@ -134,5 +181,6 @@
     </div>
     <!--SCRIPTS-->
     <script src="scripts/style-scripts.js" defer></script>
+    <script src="scripts/flickity-script.js" defer></script>
 </body>
 </html>
