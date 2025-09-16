@@ -622,7 +622,7 @@ footer {
 }
 
 .flickity-slider {
-  width: 800px !important;
+  width: 600px !important;
 }
 
 .carousel-cell {
@@ -716,5 +716,6 @@ footer {
 .carousel-cell img {
   height: 100px;
 }
+
 
 }
